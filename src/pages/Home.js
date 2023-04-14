@@ -24,12 +24,17 @@ const Home = () => {
       const lastDay = new Date(
         curDate.getFullYear(),
         curDate.getMonth() + 1,
-        0
+        0,
+        23,
+        59,
+        59
       ).getTime();
 
       setData(
-        diaryList[0].filter((it) => firstDay <= it.date && it.date <= lastDay)
+        diaryList.filter((it) => firstDay <= it.date && it.date <= lastDay)
       );
+    } else {
+      setData([]);
     }
   }, [diaryList, curDate]);
 
